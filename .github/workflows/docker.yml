@@ -60,8 +60,8 @@ jobs:
             PHP_VERSION=${{ env.version }}
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64,linux/arm64/v8
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}-fpm
-          cache-to: type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}-fpm
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}
+          cache-to: type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/phpcs:${{ env.version }}-${{ needs.build-versions.outputs.date }}
@@ -103,8 +103,8 @@ jobs:
             PHP_VERSION=${{ env.version }}
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64,linux/arm64/v8
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}-fpm
-          cache-to: type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}-fpm
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}
+          cache-to: type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/phpcs:${{ env.version }}-${{ needs.build-versions.outputs.date }}
@@ -145,8 +145,8 @@ jobs:
             PHP_VERSION=${{ env.version }}
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64,linux/arm64/v8
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}-fpm
-          cache-to: type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}-fpm
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}
+          cache-to: type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/phpcs:${{ env.version }}-${{ needs.build-versions.outputs.date }}
@@ -187,8 +187,8 @@ jobs:
             PHP_VERSION=${{ env.version }}
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64,linux/arm64/v8
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}-fpm
-          cache-to: type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}-fpm
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}
+          cache-to: type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/cache/phpcs:${{ env.version }}
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/phpcs:${{ env.version }}-${{ needs.build-versions.outputs.date }}
