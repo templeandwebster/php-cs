@@ -6,7 +6,7 @@ name: Build and Push to Registry
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ main ]
   schedule:
     - cron: 0 0 * * 1,4
   # Allows you to run this workflow manually from the Actions tab
