@@ -5,7 +5,10 @@
         "phpcompatibility/php-compatibility": "^9.3",
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
         "moxio/php-codesniffer-sniffs": "^2.5",
-        "slevomat/coding-standard": "^8.8"
+        "slevomat/coding-standard": "^8.8",
+        "pcov/clobber": "^2.0",
+        "mockery/mockery": "^1.5",
+        "phpunit/phpunit": "^9.5"
     },
     "license": "MIT",
     "description": "Pipeline Components Php-codesniffer",
