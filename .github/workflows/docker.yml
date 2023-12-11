@@ -15,50 +15,46 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-versions:
+    strategy:
+      matrix:
+        version:
+          - '8.1'
+          - '8.2'
+          - '8.3'
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+    with:
+      version: ${{ matrix.version }}
+      latest: '8.3'
+
+  clear-cache:
     runs-on: ubuntu-latest
-    outputs:
-      sha: ${{ steps.short-sha.outputs.sha }}
-      date: ${{ steps.date.outputs.date }}
+    needs: ['build-versions']
     steps:
-      - uses: actions/checkout@v3
-      - uses: benjlevesque/short-sha@v2.2
-        id: short-sha
+      - name: Clear cache
+        uses: actions/github-script@v7
         with:
-          length: 6
-      - name: Get current date
-        id: date
-        run: echo "date=$(date -u +'%Y%m%d')" >> $GITHUB_OUTPUT
-
-  latest:
-    needs: [ php-8 ]
-    strategy:
-      matrix:
-        version: [ '8.3' ]
-        latest: [ '8' ]
-    uses: ./.github/workflows/build.yml
-    secrets: inherit
-    with:
-      version: ${{ matrix.version }}
-      tags: |
-        ghcr.io/${{ github.repository_owner }}/phpcs:${{ matrix.version }}-${{ needs.build-versions.outputs.date }}
-        ghcr.io/${{ github.repository_owner }}/phpcs:${{ matrix.version }}-${{ needs.build-versions.outputs.sha }}
-        ghcr.io/${{ github.repository_owner }}/phpcs:${{ matrix.version }}
-        ghcr.io/${{ github.repository_owner }}/phpcs:${{ matrix.latest }}-${{ needs.build-versions.outputs.date }}
-        ghcr.io/${{ github.repository_owner }}/phpcs:${{ matrix.latest }}-${{ needs.build-versions.outputs.sha }}
-        ghcr.io/${{ github.repository_owner }}/phpcs:${{ matrix.latest }}
-        ghcr.io/${{ github.repository_owner }}/phpcs:latest
-
-  php-8:
-    needs: build-versions
-    strategy:
-      max-parallel: 4
-      matrix:
-        version: ['8.3', '8.2', '8.1']
-    uses: ./.github/workflows/build.yml
-    secrets: inherit
-    with:
-      version: ${{ matrix.version }}
-      tags: |
-        ghcr.io/${{ github.repository_owner }}/phpcs:${{ matrix.version }}-${{ needs.build-versions.outputs.date }}
-        ghcr.io/${{ github.repository_owner }}/phpcs:${{ matrix.version }}-${{ needs.build-versions.outputs.sha }}
-        ghcr.io/${{ github.repository_owner }}/phpcs:${{ matrix.version }}
+          script: |
+            console.log("About to clear")
+            let caches = null
+            const sleep = ms => new Promise(r => setTimeout(r, ms));
+            do {
+              caches = await github.rest.actions.getActionsCacheList({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                per_page: 100,
+                sort: 'created_at',
+                direction: 'asc'
+              })
+              for (let cache of caches.data.actions_caches) {
+                console.log(cache)
+                github.rest.actions.deleteActionsCacheById({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  cache_id: cache.id,
+                })
+              }
+              //sleep 30 seconds before iterating again, to combat rate limiting
+              await sleep(30000)
+            } while(caches?.data?.actions_caches?.length > 0)
+            console.log("Clear completed")
