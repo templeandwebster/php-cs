@@ -7,7 +7,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY composer.json /app/
 RUN docker-php-ext-enable pcov \
     && COMPOSER_ALLOW_SUPERUSER=1 composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true \
-    && composer require -W --no-interaction --sort-packages -oa --apcu-autoloader --prefer-stable \
+    && composer require -W --no-interaction --sort-packages -no --prefer-stable \
     dealerdirect/phpcodesniffer-composer-installer \
     mockery/mockery \
     moxio/php-codesniffer-sniffs \
