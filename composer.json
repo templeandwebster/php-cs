@@ -1,8 +1,28 @@
 {
     "type": "application",
-    "require": {},
     "license": "MIT",
     "description": "Pipeline Components Php-codesniffer",
     "name": "pipelinecomponents/php-codesniffer",
-    "config": {}
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "mockery/mockery": "*",
+        "moxio/php-codesniffer-sniffs": "*",
+        "pcov/clobber": "*",
+        "phpcompatibility/php-compatibility": "*",
+        "phpcsstandards/phpcsutils": "*",
+        "phpstan/phpstan": "*",
+        "phpunit/phpunit": "*",
+        "slevomat/coding-standard": "*",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "apcu-autoloader": true,
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }
