@@ -4,5 +4,22 @@
     "license": "MIT",
     "description": "Pipeline Components Php-codesniffer",
     "name": "pipelinecomponents/php-codesniffer",
-    "config": {}
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "mockery/mockery": "*",
+        "moxio/php-codesniffer-sniffs": "*",
+        "pcov/clobber": "*",
+        "phpcompatibility/php-compatibility": "*",
+        "phpunit/phpunit": "*",
+        "slevomat/coding-standard": "*",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }
