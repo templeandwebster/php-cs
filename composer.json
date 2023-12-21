@@ -10,6 +10,7 @@
         "moxio/php-codesniffer-sniffs": "*",
         "pcov/clobber": "*",
         "phpcompatibility/php-compatibility": "*",
+        "phpcsstandards/phpcsutils": "*",
         "phpunit/phpunit": "*",
         "slevomat/coding-standard": "*",
         "squizlabs/php_codesniffer": "*"
