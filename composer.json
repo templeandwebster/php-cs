@@ -1,6 +1,5 @@
 {
     "type": "application",
-    "require": {},
     "license": "MIT",
     "description": "Pipeline Components Php-codesniffer",
     "name": "pipelinecomponents/php-codesniffer",
@@ -11,6 +10,7 @@
         "pcov/clobber": "*",
         "phpcompatibility/php-compatibility": "*",
         "phpcsstandards/phpcsutils": "*",
+        "phpstan/phpstan": "*",
         "phpunit/phpunit": "*",
         "slevomat/coding-standard": "*",
         "squizlabs/php_codesniffer": "*"
