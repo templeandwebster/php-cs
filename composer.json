@@ -5,6 +5,7 @@
     "name": "pipelinecomponents/php-codesniffer",
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "friendsofphp/php-cs-fixer": "*",
         "mockery/mockery": "*",
         "moxio/php-codesniffer-sniffs": "*",
         "pcov/clobber": "*",
@@ -12,6 +13,7 @@
         "phpcsstandards/phpcsutils": "*",
         "phpstan/phpstan": "*",
         "phpunit/phpunit": "*",
+        "rector/rector": "*",
         "slevomat/coding-standard": "*",
         "squizlabs/php_codesniffer": "*"
     },
