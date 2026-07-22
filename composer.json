@@ -7,7 +7,6 @@
         "dealerdirect/phpcodesniffer-composer-installer": "*",
         "friendsofphp/php-cs-fixer": "*",
         "mockery/mockery": "*",
-        "moxio/php-codesniffer-sniffs": "*",
         "pcov/clobber": "*",
         "phpcompatibility/php-compatibility": "dev-develop",
         "phpcsstandards/phpcsutils": "*",
