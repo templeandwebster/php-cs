@@ -17,7 +17,7 @@
         "slevomat/coding-standard": "*",
         "squizlabs/php_codesniffer": "*"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
         "apcu-autoloader": true,
