@@ -9,7 +9,7 @@
         "mockery/mockery": "*",
         "moxio/php-codesniffer-sniffs": "*",
         "pcov/clobber": "*",
-        "phpcompatibility/php-compatibility": "*",
+        "phpcompatibility/php-compatibility": "dev-develop",
         "phpcsstandards/phpcsutils": "*",
         "phpstan/phpstan": "*",
         "phpunit/phpunit": "*",
@@ -17,7 +17,7 @@
         "slevomat/coding-standard": "*",
         "squizlabs/php_codesniffer": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "apcu-autoloader": true,
