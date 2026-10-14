@@ -7,6 +7,7 @@
         "dealerdirect/phpcodesniffer-composer-installer": "*",
         "friendsofphp/php-cs-fixer": "*",
         "mockery/mockery": "*",
+        "brianium/paratest": "*",
         "pcov/clobber": "*",
         "phpcompatibility/php-compatibility": "10.0.0-alpha2",
         "phpcsstandards/phpcsutils": "*",
